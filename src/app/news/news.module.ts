@@ -3,7 +3,6 @@ import { NativeScriptCommonModule } from 'nativescript-angular/common';
 
 
 import { NewsRoutingModule } from './news-routing.module';
-
 import { NewsComponent } from "./news.component";
 
 
