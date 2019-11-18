@@ -4,6 +4,7 @@ import { NativeScriptCommonModule } from "nativescript-angular/common";
 import { SearchRoutingModule } from "./search-routing.module";
 import { SearchComponent } from "./search.component";
 import { NoticiasService } from "../domain/noticias.service";
+import { DetalleComponent } from "../detalle/detalle.component";
 
 @NgModule({
     imports: [
@@ -11,7 +12,8 @@ import { NoticiasService } from "../domain/noticias.service";
         SearchRoutingModule
     ],
     declarations: [
-        SearchComponent
+        SearchComponent,
+        DetalleComponent
     ],
     schemas: [
         NO_ERRORS_SCHEMA

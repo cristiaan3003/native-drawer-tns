@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { RadSideDrawer } from "nativescript-ui-sidedrawer";
 import * as app from "tns-core-modules/application";
 import { NoticiasService } from "../domain/noticias.service";
+import { RouterExtensions } from "nativescript-angular/router";
 
 @Component({
     selector: "Search",
@@ -11,7 +12,7 @@ import { NoticiasService } from "../domain/noticias.service";
 })
 export class SearchComponent implements OnInit {
 
-    constructor( private noticias: NoticiasService) {
+    constructor( private noticias: NoticiasService, private routerExtensions: RouterExtensions) {
         // Use the component constructor to inject providers.
     }
 
@@ -37,4 +38,17 @@ export class SearchComponent implements OnInit {
     onItemTap(x):void{
         console.dir(x);
     }
+
+    onNavItemTap(navItemRoute: string): void {
+        this.routerExtensions.navigate([navItemRoute], {
+            transition: {
+                name: "fade"
+            }
+        });
+
+        const sideDrawer = <RadSideDrawer>app.getRootView();
+        sideDrawer.closeDrawer();
+    }
+
+    
 }
