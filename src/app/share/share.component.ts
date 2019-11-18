@@ -3,11 +3,11 @@ import { RadSideDrawer } from 'nativescript-ui-sidedrawer';
 import * as app from "tns-core-modules/application";
 
 @Component({
-  selector: 'ns-documents',
-  templateUrl: './documents.component.html',
-  styleUrls: ['./documents.component.css']
+  selector: 'ns-share',
+  templateUrl: './share.component.html',
+  styleUrls: ['./share.component.css']
 })
-export class DocumentsComponent implements OnInit {
+export class ShareComponent implements OnInit {
 
   constructor() { }
 
