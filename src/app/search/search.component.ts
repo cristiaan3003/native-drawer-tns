@@ -33,4 +33,8 @@ export class SearchComponent implements OnInit {
         const sideDrawer = <RadSideDrawer>app.getRootView();
         sideDrawer.showDrawer();
     }
+
+    onItemTap(x):void{
+        console.dir(x);
+    }
 }
