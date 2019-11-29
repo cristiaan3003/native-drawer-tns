@@ -5,15 +5,19 @@ import { SearchRoutingModule } from "./search-routing.module";
 import { SearchComponent } from "./search.component";
 import { NoticiasService } from "../domain/noticias.service";
 import { DetalleComponent } from "../detalle/detalle.component";
+import { SearchFormComponent } from "./search-form.component";
+import {NativeScriptFormsModule} from "nativescript-angular/forms";
 
 @NgModule({
     imports: [
         NativeScriptCommonModule,
-        SearchRoutingModule
+        SearchRoutingModule,
+        NativeScriptFormsModule
     ],
     declarations: [
+        SearchFormComponent,
         SearchComponent,
-        DetalleComponent
+        DetalleComponent,
     ],
     schemas: [
         NO_ERRORS_SCHEMA

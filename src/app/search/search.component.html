@@ -18,8 +18,8 @@
 <StackLayout class="page__content">
     <Label class="page__content-icon fas" text="&#xf002;"></Label>
 
-
-<ListView class="list-group" [items]="this.noticias.buscar()" (itemTap)="onNavItemTap('/search/detalle',$event)" style="height:1250px ;">
+<ns-search-form (search)="buscarAhora($event)" [inicial]="'hola'"></ns-search-form>
+<ListView class="list-group" [items]="this.resultados" (itemTap)="onNavItemTap('/search/detalle',$event)" style="height:1250px ;">
     <ng-template let-x="item">
             <FlexboxLayout flexDirection="row" class="list-group-item">
                 <Image src="res://icon" class="thumb img-circle"></Image>
