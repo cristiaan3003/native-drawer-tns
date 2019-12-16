@@ -6,20 +6,22 @@ import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
   styleUrls: ['./search-form.component.css']
 })
 export class SearchFormComponent implements OnInit{
-  textFliedValue: string ="";
+
+  textFieldValue: string ="";
   @Output() search: EventEmitter<string> = new EventEmitter();
   @Input() inicial : string;
   onButtonTap(): void{
-    console.dir(this.textFliedValue);
-    //if(this.textFliedValue.length>2){
-      this.search.emit(this.textFliedValue);
-    //}
+    console.dir(this.textFieldValue);
+    if(this.textFieldValue.length>2){
+      this.search.emit(this.textFieldValue);
+    }
   }
+ 
 
   constructor() { }
 
   ngOnInit() {
-    //this.textFliedValue = this.inicial;
+    this.textFieldValue = this.inicial;
   }
 
 }

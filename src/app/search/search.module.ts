@@ -15,9 +15,9 @@ import {NativeScriptFormsModule} from "nativescript-angular/forms";
         NativeScriptFormsModule
     ],
     declarations: [
-        SearchFormComponent,
-        SearchComponent,
         DetalleComponent,
+        SearchComponent,
+        SearchFormComponent
     ],
     schemas: [
         NO_ERRORS_SCHEMA

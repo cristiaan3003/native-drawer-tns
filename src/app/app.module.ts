@@ -5,6 +5,7 @@ import { NativeScriptUISideDrawerModule } from "nativescript-ui-sidedrawer/angul
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { NoticiasService } from "./domain/noticias.service";
+import { MinlenDirective } from './src/app/directives/minlen.directive';
 
 @NgModule({
     bootstrap: [
@@ -17,6 +18,7 @@ import { NoticiasService } from "./domain/noticias.service";
     ],
     declarations: [
         AppComponent,
+        MinlenDirective,
     ],
     schemas: [
         NO_ERRORS_SCHEMA
