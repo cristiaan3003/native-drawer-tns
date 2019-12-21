@@ -15,23 +15,34 @@
     <Label text="Search"></Label>
 </ActionBar>
 
-<StackLayout class="page__content">
-    <Label class="page__content-icon fas" text="&#xf002;"></Label>
 
-<ns-search-form (search)="buscarAhora($event)" [inicial]="'hola'"></ns-search-form>
-<ListView class="list-group" [items]="this.resultados" (itemTap)="onNavItemTap('/search/detalle',$event)" style="height:1250px ;">
-    <ng-template let-x="item">
-            <FlexboxLayout flexDirection="row" class="list-group-item">
-                <Image src="res://icon" class="thumb img-circle"></Image>
-                <Label [text]="x" class="list-group-item-heading" verticalAlignment="center" style="width: 60%"></Label>
-
-            </FlexboxLayout>
-    </ng-template>
-
-</ListView>
+<StackLayout>
+    <Label class="h3 text-center m-y-10" text="Aplicaciones Moviles"></Label> // #B
+    <Image src="" class="thumb img-circle"></Image>
+    <Label class="fondo footnote text-center m-y-10" text="Copyright ©2019"></Label> // #B
 
 
+        <StackLayout class="page__content" #layout>
+                <Label class="page__content-icon fas" text="&#xf002;"></Label>
+
+            <ns-search-form (search)="buscarAhora($event)" [inicial]="'hola'"></ns-search-form>
+            <PullToRefresh (refresh)="onPull($event)">
+            <ListView class="list-group" [items]="this.resultados" (itemTap)="onNavItemTap('/search/detalle',$event)" style="height:1250px ;">
+                <ng-template let-x="item">
+                        <FlexboxLayout flexDirection="row" class="list-group-item">
+                            <Image src="res://icon" class="thumb img-circle"></Image>
+                            <Label [text]="x" class="list-group-item-heading" verticalAlignment="center" style="width: 100%"></Label>
+                            <Button text="Borrar" class="btn" (tap)="onDelete(x)" style="width: 25%"></Button>
+                            <Button text="Detalle" class="btn" (tap)="onDetalle(x)" style="width: 25%" ></Button>
+                            <Image src="res://icon" class="thumb img-circle" (longPress)="onLongPress(x)" style="width: 25%"></Image>
+
+                        </FlexboxLayout>
+                </ng-template>
+
+            </ListView>
+            </PullToRefresh>
 
 
+        </StackLayout>
 </StackLayout>
 

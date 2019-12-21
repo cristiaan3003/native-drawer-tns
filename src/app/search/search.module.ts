@@ -7,6 +7,7 @@ import { NoticiasService } from "../domain/noticias.service";
 import { DetalleComponent } from "../detalle/detalle.component";
 import { SearchFormComponent } from "./search-form.component";
 import {NativeScriptFormsModule} from "nativescript-angular/forms";
+import { MinLenDirective } from '../directives/minlen.directive';
 
 @NgModule({
     imports: [
@@ -17,7 +18,8 @@ import {NativeScriptFormsModule} from "nativescript-angular/forms";
     declarations: [
         DetalleComponent,
         SearchComponent,
-        SearchFormComponent
+        SearchFormComponent,
+        MinLenDirective,
     ],
     schemas: [
         NO_ERRORS_SCHEMA

@@ -3,11 +3,13 @@ import { NativeScriptCommonModule } from "nativescript-angular/common";
 
 import { SettingsRoutingModule } from "./settings-routing.module";
 import { SettingsComponent } from "./settings.component";
+import { NativeScriptFormsModule } from "nativescript-angular/forms";
 
 @NgModule({
     imports: [
         NativeScriptCommonModule,
-        SettingsRoutingModule
+        SettingsRoutingModule,
+        NativeScriptFormsModule
     ],
     declarations: [
         SettingsComponent

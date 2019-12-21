@@ -1,4 +1,4 @@
-<ActionBar>
+<ActionBar class="action-bar">
     <!-- 
     Use the NavigationButton as a side-drawer button in Android
     because ActionItems are shown on the right side of the ActionBar
@@ -12,8 +12,11 @@
     <ActionItem icon="res://navigation/menu" android:visibility="collapsed" (tap)="onDrawerButtonTap()"
         ios.position="left">
     </ActionItem>
-    <Label text="Share"></Label>
+    <Label class="action-bar-title" text="Usuarios"></Label>
 </ActionBar>
 
-
-<Button text="share works!" class="btn btn-primary"></Button>
+<StackLayout class="awesome  page page-content">
+    <TextField #texto="ngModel" [(ngModel)] ="nombreUsuario" hint="Ingresar nombre: " required minlen="4"></TextField>
+    <Label *ngIf="texto.hasError('required')" text="El nombre debe contener al menos 5 caractres"></Label>
+    <Button text="Buscar" (tap)="onButtonTap()" *ngIf="texto.valid"></Button>    
+<StackLayout>  
