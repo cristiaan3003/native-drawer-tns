@@ -32,7 +32,7 @@ export class SearchComponent implements OnInit {
 
     ngOnInit(): void {
         // Init your component properties here.
-        console.log("dasda");
+        /*console.log("dasda");
         console.log({nombre: {nombre: {nombre: {nombre: "pepe"}}}});
         console.dir({nombre: {nombre: {nombre: {nombre: "pepe"}}}});
         console.log([1,2,3]);
@@ -41,7 +41,7 @@ export class SearchComponent implements OnInit {
 
         this.noticias.agregar("hola");
         this.noticias.agregar("hola 2");
-        this.noticias.agregar("hola 3");
+        this.noticias.agregar("hola 3");*/
 
         /*this.store.select((state) => state.noticias.sugerida)
             .subscribe((data) => {
@@ -103,7 +103,16 @@ export class SearchComponent implements OnInit {
     }*/
 
     buscarAhora(s:string){
-        this.resultados = this.noticias.buscar().filter((x)=> x.indexOf(s)>= 0);
+        
+        console.dir("buscarAhora: "+s);
+        this.noticias.buscar(s).then((r:any) => {
+            console.log("resultados buscarAhora "+ JSON.stringify(r));
+            this.resultados = r;
+        }, (e)=> {
+            console.log("Error buscarAhora "+e);
+            Toast.show({text: "Error en la busqueda", duration: Toast.DURATION.SHORT})
+        });
+
 
         //ejecutar animacion luego del buscar
         const layout_native_element = <View>this.layout_typescript.nativeElement;
@@ -120,7 +129,5 @@ export class SearchComponent implements OnInit {
             duration: 300,
             delay: 150
         }))
-    }
-
-    
+    }    
 }
