@@ -5,6 +5,7 @@ import * as appSettings from "tns-core-modules/application-settings";
 
 @Component({
   selector: 'ns-share',
+  moduleId: module.id,
   templateUrl: './share.component.html',
   styleUrls: ['./share.component.css']
 })
