@@ -24,6 +24,6 @@ import { MinLenDirective } from '../directives/minlen.directive';
     schemas: [
         NO_ERRORS_SCHEMA
     ],
-    //providers: [NoticiasService],
+    providers: [NoticiasService],
 })
 export class SearchModule { }

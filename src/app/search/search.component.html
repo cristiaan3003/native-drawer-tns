@@ -33,8 +33,9 @@
                             <Image src="res://icon" class="thumb img-circle"></Image>
                             <Label [text]="x" class="list-group-item-heading" verticalAlignment="center" style="width: 100%"></Label>
                             <Button text="Borrar" class="btn" (tap)="onDelete(x)" style="width: 25%"></Button>
-                            <Button text="Detalle" class="btn" (tap)="onDetalle(x)" style="width: 25%" ></Button>
                             <Image src="res://icon" class="thumb img-circle" (longPress)="onLongPress(x)" style="width: 25%"></Image>
+                            <Button text="Detalle" class="btn" (tap)="onDetalle(x)" (longPress)="onLongPress(x)" style="width: 25%" ></Button>
+                            
 
                         </FlexboxLayout>
                 </ng-template>

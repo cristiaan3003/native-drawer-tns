@@ -4,7 +4,27 @@ import { NativeScriptUISideDrawerModule } from "nativescript-ui-sidedrawer/angul
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
+import { FeaturedModule } from "./featured/featured.module";
+
+import { ActionReducerMap, StoreModule as NgRxStoreModule } from "@ngrx/store";
+import { EffectsModule } from "@ngrx/effects";
+import { initializeNoticiasState, NoticiasEffects, NoticiasState, reducersNoticias } from "./domain/noticias-state.models";
 import { NoticiasService } from "./domain/noticias.service";
+
+
+export interface AppState {
+    noticias: NoticiasState;
+}
+
+const reducers: ActionReducerMap<AppState> = {
+    noticias: reducersNoticias
+};
+
+const reducersInitialState = {
+    noticias: initializeNoticiasState()
+              
+};
+
 
 @NgModule({
     bootstrap: [
@@ -13,7 +33,10 @@ import { NoticiasService } from "./domain/noticias.service";
     imports: [
         AppRoutingModule,
         NativeScriptModule,
-        NativeScriptUISideDrawerModule
+        NativeScriptUISideDrawerModule, 
+        FeaturedModule,
+        NgRxStoreModule.forRoot(reducers, {initialState: reducersInitialState}),
+        EffectsModule.forRoot([NoticiasEffects])
     ],
     declarations: [
         AppComponent,

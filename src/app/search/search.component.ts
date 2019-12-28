@@ -1,11 +1,16 @@
-import { Component, OnInit, ViewChild, ElementRef } from "@angular/core";
+import { Component, ElementRef, OnInit, ViewChild } from "@angular/core";
+import { Store, State } from "@ngrx/store";
+import * as Toast from 'nativescript-toasts';
 import { RadSideDrawer } from "nativescript-ui-sidedrawer";
 import * as app from "tns-core-modules/application";
 import { NoticiasService } from "../domain/noticias.service";
-import { RouterExtensions } from "nativescript-angular/router";
+import { Noticia, NuevaNoticiaAction } from "../domain/noticias-state.models";
+import * as dialogs from "tns-core-modules/ui/dialogs";
+import { timestamp } from "rxjs/operators";
+import { Color, View } from "tns-core-modules/ui/core/view/view"
+import { AppState } from "../app.module";
+import { disableDebugTools } from "@angular/platform-browser";
 import * as SocialShare from "nativescript-social-share";
-import { View, Color } from "tns-core-modules/ui/page/page";
-import { duration } from "nativescript-toast";
 
 @Component({
     selector: "Search",
@@ -14,14 +19,14 @@ import { duration } from "nativescript-toast";
     //providers: [NoticiasService] -- provider de manera local 
 })
 export class SearchComponent implements OnInit {
-    resultados : Array<string>;
+    resultados : Array<string> = [];
     //Para Animacion
-    //referencia a StackLayout a la variable "layout" de la vista "searchcomponet.html" 
+    //referencia a StackLayout (en el html) a la variable "layout" de la vista "searchcomponet.html" 
     //para poder manipularla con typescript en el componente con
     //la variable layout_typescript. 
     @ViewChild("layout",null) layout_typescript:ElementRef; 
 
-    constructor( private noticias: NoticiasService, private routerExtensions: RouterExtensions) {
+    constructor( private noticias: NoticiasService, private store: Store<AppState>) {
         // Use the component constructor to inject providers.
     }
 
@@ -38,7 +43,28 @@ export class SearchComponent implements OnInit {
         this.noticias.agregar("hola 2");
         this.noticias.agregar("hola 3");
 
+        /*this.store.select((state) => state.noticias.sugerida)
+            .subscribe((data) => {
+                const f = data;
+                if (f != null) {
+                    Toast.show({ text: "Sugerimos leer: " + f.titulo, duration: Toast.DURATION.SHORT });
+                }
+            });*/
+
     }
+
+    onPull(x) {
+        let contador = this.resultados.length + 1;
+        let saludos = "Hola " + contador;
+
+        console.log(x);
+        const pullRefresh = x.object;
+        setTimeout(() => {
+            this.resultados.push(saludos);
+            pullRefresh.refreshing = false;
+        }, 1000);
+    }
+
 
     onDrawerButtonTap(): void {
         const sideDrawer = <RadSideDrawer>app.getRootView();
@@ -46,7 +72,8 @@ export class SearchComponent implements OnInit {
     }
 
     onItemTap(x):void{
-        console.dir(x);
+        /*console.dir(x);*/
+        this.store.dispatch(new NuevaNoticiaAction(new Noticia(x.view.bindingContext)));
     }
 
     onDelete(item): void {
@@ -64,7 +91,7 @@ export class SearchComponent implements OnInit {
       }
 
 
-    onNavItemTap(navItemRoute: string): void {
+    /*onNavItemTap(navItemRoute: string): void {
         this.routerExtensions.navigate([navItemRoute], {
             transition: {
                 name: "fade"
@@ -73,7 +100,7 @@ export class SearchComponent implements OnInit {
 
         const sideDrawer = <RadSideDrawer>app.getRootView();
         sideDrawer.closeDrawer();
-    }
+    }*/
 
     buscarAhora(s:string){
         this.resultados = this.noticias.buscar().filter((x)=> x.indexOf(s)>= 0);
