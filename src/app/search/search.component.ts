@@ -32,24 +32,15 @@ export class SearchComponent implements OnInit {
 
     ngOnInit(): void {
         // Init your component properties here.
-        /*console.log("dasda");
-        console.log({nombre: {nombre: {nombre: {nombre: "pepe"}}}});
-        console.dir({nombre: {nombre: {nombre: {nombre: "pepe"}}}});
-        console.log([1,2,3]);
-        console.dir([1,2,3]);
 
-
-        this.noticias.agregar("hola");
-        this.noticias.agregar("hola 2");
-        this.noticias.agregar("hola 3");*/
-
-        /*this.store.select((state) => state.noticias.sugerida)
+        //suscribo a los cambios de la propiedad sugerida
+        this.store.select((state) => state.noticias.sugerida)
             .subscribe((data) => {
                 const f = data;
                 if (f != null) {
                     Toast.show({ text: "Sugerimos leer: " + f.titulo, duration: Toast.DURATION.SHORT });
                 }
-            });*/
+            });
 
     }
 

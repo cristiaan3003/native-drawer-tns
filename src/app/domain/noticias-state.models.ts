@@ -1,3 +1,6 @@
+//*******************************************************
+// ***************Nucleo del store de REDUX**************
+//*******************************************************
 import { Injectable } from "@angular/core";
 import { Action } from "@ngrx/store";
 import { Observable} from "rxjs";
@@ -35,19 +38,19 @@ export enum NoticiasActionTypes {
 
 // tslint:disable-next-line:max-classes-per-file
 export class InitMyDataAction implements Action {
-  type = NoticiasActionTypes.INIT_MY_DATA;
+  type = NoticiasActionTypes.INIT_MY_DATA;//reducer
   constructor(public titulares: Array<string>) {}
 }
 
 // tslint:disable-next-line:max-classes-per-file
 export class NuevaNoticiaAction implements Action {
-  type = NoticiasActionTypes.NUEVA_NOTICIA;
+  type = NoticiasActionTypes.NUEVA_NOTICIA;//reducer
   constructor(public noticia: Noticia) {}
 }
 
 // tslint:disable-next-line:max-classes-per-file
 export class SugerirAction implements Action {
-  type = NoticiasActionTypes.SUGERIR_NOTICIA;
+  type = NoticiasActionTypes.SUGERIR_NOTICIA;//reducer
   constructor(public noticia: Noticia) {}
 }
 
