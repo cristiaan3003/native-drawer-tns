@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "87320521527",
+    "firebase_url": "https://tns-nativescript-431a2.firebaseio.com",
+    "project_id": "tns-nativescript-431a2",
+    "storage_bucket": "tns-nativescript-431a2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:87320521527:android:7f26f7ae05d5071b",
+        "android_client_info": {
+          "package_name": "org.nativescript.mydrawerng"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "87320521527-h7gp7qr079k388gp3ngtbr89s3mrok65.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB-Ugwk-FILBokBW5RXmfCksNDQH4fnbHQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "87320521527-h7gp7qr079k388gp3ngtbr89s3mrok65.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

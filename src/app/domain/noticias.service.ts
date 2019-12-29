@@ -6,7 +6,7 @@ const sqlite = require("nativescript-sqlite");
 Injectable()
 export class NoticiasService{
     //private noticias: Array<string> = [];
-    api: string = "https://a6eaddd5.ngrok.io";
+    api: string = "https://d2a9645b.ngrok.io";
 
     constructor(){
         this.getDb((db) => {
