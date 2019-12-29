@@ -8,7 +8,7 @@ import { FeaturedModule } from "./featured/featured.module";
 
 import { ActionReducerMap, StoreModule as NgRxStoreModule } from "@ngrx/store";
 import { EffectsModule } from "@ngrx/effects";
-import { initializeNoticiasState, NoticiasEffects, NoticiasState, reducersNoticias } from "./domain/noticias-state.models";
+import { initializeNoticiasState, NoticiasEffects, NoticiasState, reducersNoticias } from "./domain/noticias-state.model";
 import { NoticiasService } from "./domain/noticias.service";
 
 

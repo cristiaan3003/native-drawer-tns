@@ -4,7 +4,7 @@ import * as Toast from 'nativescript-toasts';
 import { RadSideDrawer } from "nativescript-ui-sidedrawer";
 import * as app from "tns-core-modules/application";
 import { NoticiasService } from "../domain/noticias.service";
-import { Noticia, NuevaNoticiaAction } from "../domain/noticias-state.models";
+import { Noticia, NuevaNoticiaAction } from "../domain/noticias-state.model";
 import * as dialogs from "tns-core-modules/ui/dialogs";
 import { timestamp } from "rxjs/operators";
 import { Color, View } from "tns-core-modules/ui/core/view/view"
