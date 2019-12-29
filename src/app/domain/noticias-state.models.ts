@@ -24,7 +24,9 @@ export function initializeNoticiasState() {
   };
 }
 
+//*******************************************************
 // ACCIONES
+//*******************************************************
 export enum NoticiasActionTypes {
   INIT_MY_DATA = "[Noticias] Init My Data",
   NUEVA_NOTICIA = "[Noticias] Nueva",
@@ -51,7 +53,9 @@ export class SugerirAction implements Action {
 
 export type NoticiasViajesActions = NuevaNoticiaAction | InitMyDataAction;
 
+//*******************************************************
 // REDUCERS
+//*******************************************************
 export function reducersNoticias(
   state: NoticiasState,
   action: NoticiasViajesActions
@@ -82,7 +86,9 @@ export function reducersNoticias(
   return state;
 }
 
+//*******************************************************
 // EFFECTS
+//*******************************************************
 // tslint:disable-next-line:max-classes-per-file
 @Injectable()
 export class NoticiasEffects {
